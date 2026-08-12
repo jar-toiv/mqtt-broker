@@ -1,0 +1,8 @@
+# .prettierignore
+#someSpecificFile.js
+#someFolder/
+
+logs/
+node_modules/
+.prettierignore
+settings.json
