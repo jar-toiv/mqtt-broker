@@ -1,18 +1,19 @@
+import dns from 'dns'
 import app from './app.js'
-import createGreenlock from './greenlock.js'
 import setupMqttBroker from './broker/mqttBroker.js'
 import loggers from './utils/logger.js'
 
 const { logger } = loggers
 
 const isProd = process.env.NODE_ENV === 'production'
+dns.setServers(['1.1.1.1', '8.8.8.8'])
 
 async function startServer() {
   try {
     if (isProd) {
       const { default: createGreenlock } = await import('./greenlock.js')
       const lex = await createGreenlock()
-      
+
       if (lex && typeof lex.serve === 'function') {
         logger.info('Starting server with Greenlock...')
         lex.serve(app)

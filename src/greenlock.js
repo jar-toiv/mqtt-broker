@@ -3,22 +3,22 @@ import { dirname, resolve } from 'path'
 import greenlockExpress from 'greenlock-express'
 import CONFIG from './config/config.js'
 import loggers from './utils/logger.js'
+import packageJson from '../package.json' with { type: 'json' }
 
 const { logger, loggerProcess } = loggers
-import packageJson from '../package.json' with { type: 'json' }
 const packageAgent = `${packageJson.name}@${packageJson.version}`
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
-const packageRoot = resolve(__dirname, '..')
-
+const configDir = resolve(__dirname,'..', CONFIG.GREENLOCK_CONFIG_DIR) || resolve(__dirname, '../greenlock.d')
 async function createGreenlock() {
   try {
     const lex = greenlockExpress.init({
-      port: process.env.PORT,
-      packageRoot: packageRoot,
-      configDir: resolve(packageRoot, 'greenlock.d'),
-      maintainerEmail: CONFIG.CERT_EMAIL_ADDRESS || 'toivanen@protonmail.com',
+      staging: process.env.ACME_STAGING === 'true',
+      port: CONFIG.PORT,
+      packageRoot: resolve(__dirname, '..'),
+      configDir: configDir,
+      maintainerEmail: CONFIG.CERT_EMAIL_ADDRESS,
       cluster: false,
       packageAgent: packageAgent
     })

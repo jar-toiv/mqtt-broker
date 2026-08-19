@@ -14,7 +14,10 @@ const requiredEnvVariables = [
   'MQTT_HOST',
   'MQTT_PORT',
   'NODE_ENV',
-  'CERT_EMAIL_ADDRESS'
+  'CERT_EMAIL_ADDRESS',
+  'CERT_DOMAIN',
+  'GREENLOCK_CONFIG_DIR',
+  'PORT'
 ]
 
 for (const envVariable of requiredEnvVariables) {
@@ -30,7 +33,10 @@ const CONFIG = {
   MQTT_USERNAME: process.env.MQTT_USERNAME,
   MQTT_PASSWORD: process.env.MQTT_PASSWORD,
   MQTT_HOST: process.env.MQTT_HOST,
-  MQTT_PORT: process.env.MQTT_PORT
+  MQTT_PORT: process.env.MQTT_PORT,
+  CERT_DOMAIN: process.env.CERT_DOMAIN,
+  GREENLOCK_CONFIG_DIR: process.env.GREENLOCK_CONFIG_DIR,
+  PORT: process.env.PORT
 }
 
 export default CONFIG
