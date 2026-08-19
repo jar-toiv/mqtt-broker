@@ -6,12 +6,12 @@ dotenv.config({ path: path.resolve('.env') })
 const { combine, timestamp, label, printf, colorize } = winston.format
 
 const logLevels = {
-  debug: 0,
-  info: 1,
+  error: 0,
+  warn: 1,
   initProcess: 2,
   process: 3,
-  warn: 4,
-  error: 5
+  info: 4,
+  debug: 5
 }
 
 const logColors = {
