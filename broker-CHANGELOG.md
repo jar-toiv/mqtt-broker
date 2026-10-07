@@ -1,5 +1,18 @@
 # Changelog — broker
 
+## 2026-10-07
+
+### README rewritten
+- The README now states that this is a proof of concept and not production code.
+- Added a Status section. Development mode works locally. Production mode is not deployed, because the current connection is 4G behind double NAT.
+- Fixed the project structure. `config.js` is in `src/config/`, and `handler/authentication.js` was missing from the tree.
+- Added `CERT_DOMAIN` and `ACME_STAGING` to the environment variable table.
+- Removed the claim that dependencies have no caret ranges. `package.json` uses them.
+
+### Fixes
+- `app.js` CORS origin now has the protocol slashes (`https://`).
+- Removed `net` and `node` from dependencies. `net` is a Node.js built-in module, and the `node` package does nothing when install scripts are turned off.
+
 ## 2026-08-19
 
 ### Domain migration + removed hardcoded cert paths
