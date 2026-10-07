@@ -16,7 +16,7 @@ app.use(helmet())
 
 app.use(
   cors({
-    origin: 'https:broker.jarmo.site',
+    origin: 'https//:broker.jarmo.site',
     methods: 'GET, POST',
     credentials: true
   })
