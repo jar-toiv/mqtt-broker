@@ -11,6 +11,9 @@
   },
   "author": "jarmo",
   "license": "ISC",
+  "engines": {
+    "node": ">=24.22.1"
+  },
   "dependencies": {
     "aedes": "^0.50.0",
     "cors": "^2.8.5",

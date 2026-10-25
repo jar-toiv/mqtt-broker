@@ -53,7 +53,7 @@ src/
 
 ## Running locally
 
-The project was developed and tested on Node.js 24.
+Requires Node.js 24.22.1 or newer.
 
 ```bash
 # Install dependencies
